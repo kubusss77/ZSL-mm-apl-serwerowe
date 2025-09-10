@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  apache:
+    image: php:7.4-apache
+    container_name: xampp-apache
+    ports:
+      - "4401:80"
+    volumes:
+      - ./www:/var/www/html
+    networks:
+      - xampp-network
+
+  mysql:
+    image: mysql:5.7
+    container_name: xampp-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: xampp_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "4402:3306"
+    networks:
+      - xampp-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: xampp-phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "4403:80"
+    networks:
+      - xampp-network
+
+networks:
+  xampp-network:
+    driver: bridge
