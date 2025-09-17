@@ -19,7 +19,8 @@ services:
       MYSQL_DATABASE: xampp_db
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-    ports:
+    volumes:
+      - /home/docker-ssh/mendela/mysql:/var/lib/mysql
       - "4402:3306"
     networks:
       - xampp-network
