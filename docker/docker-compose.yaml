@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   apache:
-    image: php:7.4-apache
+    build: ./apache
     container_name: xampp-apache
     ports:
       - "4401:80"
