@@ -7,7 +7,7 @@ services:
     ports:
       - "4401:80"
     volumes:
-      - ./www:/var/www/html
+      - /home/docker-ssh/mendela/html:/var/www/html
     networks:
       - xampp-network
 
