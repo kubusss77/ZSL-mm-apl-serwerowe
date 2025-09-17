@@ -21,6 +21,7 @@ services:
       MYSQL_PASSWORD: password
     volumes:
       - /home/docker-ssh/mendela/mysql:/var/lib/mysql
+    ports:
       - "4402:3306"
     networks:
       - xampp-network
