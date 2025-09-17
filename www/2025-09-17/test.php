@@ -1,5 +1,5 @@
 <?php
-//phpinfo();
+phpinfo();
 
 include("hidden.php"); // require
 $dsn = "mysql:dbname=$dbname;host=$host";
