@@ -8,6 +8,22 @@
       #selects {
         text-align: center;
       }
+      
+      .calendar {
+        display: flex;
+        justify-self: center;
+        padding: 20px;
+      }
+
+      .calendar td {
+        padding: 5px;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      .today {
+        background: cornflowerblue;
+      }
     </style>
     <?php
     $df = new IntlDateFormatter(
@@ -66,19 +82,46 @@
       </form>
     </section>
     <section>
-      <table>
+      <table class="calendar">
         <?php
         $firstOfMonth = date('N', mktime(0, 0, 0, $month, 1, $year));
-        echo $firstOfMonth, ' ';
-
-        $month = $_POST['sel-month'];
-        $year = $_POST['sel-year'];
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-        $weeksInMonth = ceil(($daysInMonth + $firstOfMonth - 1) / 7);
-        echo $weeksInMonth, ' ';
 
-        for ($i = 0; $i < $weeksInMonth; $i++) {
-          echo $i . '\n';
+        $today = date('j');
+        $cur_month = date('n');
+
+        if($month != $cur_month) {
+          $today = 0;
+        }
+
+        $day = 1;
+        //Pierwszy tydzień
+        echo '<tr>';
+        for($i = 0; $i < $firstOfMonth - 1; $i++) {
+          echo '<td>' . '</td>';
+        }
+        for($i = $firstOfMonth; $i <= 7; $i++) {
+          if($day == $today) {
+              echo '<td class="today">' . $day . '</td>';
+            } else {
+              echo '<td>' . $day . '</td>';
+            }
+            $day++;
+        }
+        echo '</tr>';
+
+        //Kolejne tygodnie
+        for ($i = 0; $day < $daysInMonth; $i++) {
+          echo '<tr>';
+          for($j = 0; $j < 7 && $day <= $daysInMonth; $j++) {
+            if($day == $today) {
+              echo '<td class="today">' . $day . '</td>';
+            } else {
+              echo '<td>' . $day . '</td>';
+            }
+            $day++;
+          }
+          echo '</tr>';
         }
         ?>
       </table>
