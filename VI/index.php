@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/calendar.css">
     <?php
     require 'tools/dateFormatter.php';
     // $df_month->format()
@@ -26,39 +27,7 @@
       $year = $curYear;
     }
     ?>
-    <title>Document</title>
-    <style>
-      header {
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-
-      .calendar {
-        margin: auto;
-      }
-
-      .calendar td {
-        padding: 5px;
-        font-size: 20px;
-        text-align: center;
-        aspect-ratio: 1;
-      }
-
-      .today {
-        background: darkblue;
-        
-      }
-
-      td:hover {
-        border-radius: 100%;
-        background: #eee;
-      }
-
-      a {
-        text-decoration: none;
-        color: black;
-      }
-    </style>
+    <title>Kalendarz</title>
   </head>
   <body>
     <header>
@@ -101,13 +70,13 @@
         $day = 1;
 
         function genTd($y, $m, $d) {
-          $url = $_SERVER['REQUEST_URI'] . '/day' . '?' . 'y=' . $y . '&m=' . $m . '&d=' . $d;
+          $url = $_SERVER['REQUEST_URI'] . 'day/' . '?' . 'y=' . $y . '&m=' . $m . '&d=' . $d;
 
           global $today;
           global $curYear;
 
           if ($d == $today && $y == $curYear) {
-            echo '<td class="button"> <a style="color: white;" ';
+            echo '<td id="today"> <a ';
           } else {
             echo '<td> <a ';
           }
