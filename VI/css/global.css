@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 2rem;
+}
+
+.button {
+  background-color: darkblue;
+  color: white;
+  border-radius: 0.5rem;
+  border: 0.2rem solid lightgray;
+}
