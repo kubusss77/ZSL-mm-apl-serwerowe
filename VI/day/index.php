@@ -5,24 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/global.css">
   <?php
-  require '../tools/dateFormatter.php';
-  // $df_month->format()
+    require '../tools/dateFormatter.php';
+    // $df_month->format()
 
-  $year;
-  $month;
-  $day;
+    require '../tools/db.php'
 
-  if (isset($_GET['y']) && isset($_GET['m']) && isset($_GET['d'])) {
-    $year = $_GET['y'];
-    $month = $_GET['m'];
-    $day = $_GET['d'];
-  } else {
-    http_response_code(400);
-    echo 'Bad request';
-    exit();
-  }
+    $year;
+    $month;
+    $day;
 
-  $date = new DateTime()->setDate($year, $month, $day);
+    if (isset($_GET['y']) && isset($_GET['m']) && isset($_GET['d'])) {
+      $year = $_GET['y'];
+      $month = $_GET['m'];
+      $day = $_GET['d'];
+    } else {
+      http_response_code(400);
+      echo 'Bad request';
+      exit();
+    }
+
+    echo $_POST['text'];
+
+    $date = new DateTime();
+    $date->setDate($year, $month, $day);
+
+    $sth->prepare("SELECT content FROM ")
   ?>
   <title>Wpis <?php echo $day . '-' . $month . '-' . $year; ?></title>
   <style>
@@ -33,14 +40,14 @@
 </head>
 <body>
   <h1><?php echo $day . ' ' . $df_month->format($date) . ' ' . $year; ?></h1>
-  <div style="display: flex;">
-    <h3>Edytuj wpis</h3>
-    <div>
-      <button class="button">Zapisz</button>
+  <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <div style="display: flex; gap: 16px;">
+      <h3>Edytuj wpis</h3>
+      <button type="submit" class="button">Zapisz</button>
     </div>
-  </div>
-  
-  <textarea rows="20" cols="100"></textarea>
+    
+    <textarea rows="20" cols="100" name="text"></textarea>
+  </form>
   
 </body>
 </html>

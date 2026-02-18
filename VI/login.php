@@ -6,11 +6,8 @@
   <link rel="stylesheet" href="./css/loginRegister.css">
   <title>Document</title>
   <?php
-  require 'secrets.php';
-  // W secrets.php muszą być:
-  // $db_user, $db_pass
+    require 'secrets.php';
 
-  $db = new PDO('mysql:dbname=planer;host=localhost', $db_user, $db_pass);
   ?>
 </head>
 <body>
