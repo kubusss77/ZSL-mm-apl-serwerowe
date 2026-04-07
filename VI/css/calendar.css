@@ -23,7 +23,7 @@ td {
   border-radius: 0.5rem;
 }
 
-td:hover {
+.day:hover {
   background-color: #eee;
 }
 
