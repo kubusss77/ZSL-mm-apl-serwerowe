@@ -1,0 +1,38 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+img.action-icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.edit-mode input,
+.edit-mode select {
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.cancel-btn {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  margin-left: 5px;
+  font-size: 20px;
+  text-decoration: none;
+}
