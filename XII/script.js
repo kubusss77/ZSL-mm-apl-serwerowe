@@ -66,6 +66,13 @@ function renderTable() {
 
 function makeEditable(tr, row) {
   if (tr.classList.contains('edit-mode')) return;
+
+  // tylko jeden edytowany naraz
+  if (document.querySelector('tr.edit-mode')) {
+    renderTable();
+    tr = document.querySelector(`tr[data-id="${row.id}"]`);
+  }
+
   tr.classList.add('edit-mode');
 
   const cols = tr.querySelectorAll('td:not(.col-akcja)');
