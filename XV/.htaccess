@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Librus Protected Area"
+AuthUserFile /Applications/ServBay/www/servbay/mendela-apl-serwerowe/XV/librus/.htpasswd
+Require valid-user

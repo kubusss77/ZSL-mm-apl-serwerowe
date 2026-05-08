@@ -1,0 +1,2 @@
+# Uruchamia skrypt sprawdzający szczęśliwy numerek i wysyłający email od poniedziałku do piątku o 7:00
+0 7 * * 1-5 php /Applications/ServBay/www/servbay/mendela-apl-serwerowe/XV/librus/cron.php >> /Applications/ServBay/www/servbay/mendela-apl-serwerowe/XV/librus/cron.log 2>&1
