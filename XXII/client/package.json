@@ -1,0 +1,17 @@
+{
+  "name": "pedzace-zolwie",
+  "version": "1.0.0",
+  "description": "Klient TypeScript dla gry Pędzące Żółwie.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "private": true,
+  "scripts": {
+    "build": "node node_modules/typescript/lib/tsc.js -p tsconfig.json",
+    "watch": "node node_modules/typescript/lib/tsc.js -p tsconfig.json --watch",
+    "check": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
